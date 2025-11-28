@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+</head>
+<body>
+    <h2>We will calculate if you are passing - by me</h2>
+    
+    <input type="number" id="grade" placeholder="Enter your grade (0-100)">
+    <button onclick="calculateGrade()">Check Result</button>
+    
+    <p>Result: <span id="gradeValue"></span></p>
+    <p>This means that: <span id="meaning"></span></p>
+    
+    <script>
+        function calculateGrade() {
+            let grade = parseFloat(document.getElementById('grade').value);
+            
+            if (isNaN(grade)) {
+                document.getElementById('gradeValue').textContent = "Please enter a valid number.";
+                document.getElementById('meaning').textContent = "";
+                return;
+            }
+
+            let meaning;
+
+            if (grade < 50) {
+                meaning = "You got a F ";
+            } else if (grade < 65) {
+                meaning = "You got a C)";
+            } else if (grade < 85) {
+                meaning = "You got a B";
+            } else {
+                meaning = "You got an A";
+            }
+
+            document.getElementById('gradeValue').textContent = grade.toFixed(1);
+            document.getElementById('meaning').textContent = meaning;
+        }
+    </script>
+</body>
+</html>
